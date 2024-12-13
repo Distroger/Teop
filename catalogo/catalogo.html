@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuerdos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #1a1a1a, #0d0d2b);
+            color: #e0e0e0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            padding: 15px 20px;
+            background: rgba(15, 15, 15, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #b3b3ff;
+        }
+        .back-button {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 1rem;
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            color: #80aaff;
+        }
+        .gallery {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            flex-grow: 1;
+        }
+        .card {
+            background: rgba(30, 30, 50, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.7);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #80aaff;
+        }
+        .card-content p {
+            font-size: 1rem;
+            color: #d0d0d0;
+        }
+        footer {
+            padding: 20px;
+            background: #0a0a0a;
+            text-align: center;
+            color: #888;
+        }
+        footer a {
+            color: #6699ff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsividad para dispositivos móviles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery {
+                padding: 20px 10px;
+            }
+
+            .card {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Galería de Recuerdos</h1>
+        <a href="../index.html" class="back-button">Volver</a>
+    </header>
+    <section class="gallery">
+        <a href="juntada1/juntada1.html" class="card">
+            <img src="juntada1/primera1.png" alt="Primer Encuentro">
+            <div class="card-content">
+                <h3>Primer Encuentro</h3>
+                <p>Marcos ese dia no pudo asistir pero se encontraron por primera vez Alan con el resto del grupo</p>
+            </div>
+        </a>
+        <a href="juntada2/juntada2.html" class="card">
+            <img src="juntada2/banda.png" alt="Creación de la Banda">
+            <div class="card-content">
+                <h3>Creación de la Banda</h3>
+                <p>Aquí fue cuando se creó nuestra banda que duró menos de un mes xd</p>
+            </div>
+        </a>
+        <a href="juntada3/juntada3.html" class="card">
+            <img src="juntada3/ferro.png" alt="Juntada Zonda">
+            <div class="card-content">
+                <h3>Este día fue una juntada de Zonda</h3>
+                <p>No hay fotos de esto, solamente sabemos que íbamos sin remera por el centro.</p>
+            </div>
+        </a>
+        <a href="juntada4/juntada4.html" class="card">
+            <img src="juntada4/casa.png" alt="Juntada en Casa de Alan">
+            <div class="card-content">
+                <h3>Juntada en Casa de Alan</h3>
+                <p>Esta fue la primera vez que nos juntamos en casa de Alan a comer, jugar en la Play y explorar.</p>
+            </div>
+        </a>
+        <a href="juntada5/juntada5.html" class="card">
+            <img src="juntada5/argentina.png" alt="Ganó Argentina">
+            <div class="card-content">
+                <h3>Ganó Argentina</h3>
+                <p>Este día nos juntamos a comer y a ver el partido de Argentina contra Colombia.</p>
+            </div>
+        </a>
+        <a href="juntada6/juntada6.html" class="card">
+            <img src="juntada6/tocada.png" alt="Último Concierto">
+            <div class="card-content">
+                <h3>Último Concierto</h3>
+                <p>Aquí, por pedido de Marcos como última juntada antes de él irse, tocamos música, que es una pasión que tenemos todos en común.</p>
+            </div>
+        </a>
+        <a href="despedida/despedida.html" class="card">
+            <img src="despedida/despedida.png" alt="Despedida">
+            <div class="card-content">
+                <h3>Despedida...</h3>
+                <p>Este día lo fuimos a despedir a Marcos al aeropuerto, es un día que no olvidaremos, ya que no es un adiós, sino un hasta pronto.</p>
+            </div>
+        </a>
+    </section>
+    <footer>
+        <p>Creado por <a href="#">Alan</a>. &copy; 2025</p>
+    </footer>
+</body>
+</html>

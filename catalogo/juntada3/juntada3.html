@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuerdos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #1a1a1a, #0d0d2b);
+            color: #e0e0e0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 15px 20px;
+            background: rgba(15, 15, 15, 0.9);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #80aaff;
+            display: inline-block;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 1rem;
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            color: #80aaff;
+        }
+
+        .description {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .description p {
+            font-size: 1.2rem;
+            color: #cccccc;
+        }
+
+        .carousel {
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            text-align: center;
+        }
+
+        .carousel-item img, .carousel-item video {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .carousel-item video {
+            display: block;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-controls button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-controls button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            display: none;
+        }
+
+        .fullscreen-content {
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .fullscreen-content img, .fullscreen-content video {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .fullscreen a {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .download-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #444;
+            color: #fff;
+            padding: 6px 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: none;
+            border-radius: 5px;
+        }
+
+        .download-btn:hover {
+            background: #666;
+        }
+
+        .back-carousel-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #444;
+            color: #fff;
+            padding: 6px 10px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: none;
+            border-radius: 5px;
+        }
+
+        .back-carousel-btn:hover {
+            background: #666;
+        }
+
+        @media screen and (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .carousel-controls button {
+                padding: 8px;
+            }
+
+            .download-btn, .back-carousel-btn {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../catalogo.html" class="back-button">Volver</a>
+        <h1>Ese Dia</h1>
+    </header>
+
+    <section class="description">
+        <p>Fue un dia de zonda y tomamos una coca</p>
+    </section>
+
+    <section class="carousel">
+        <div class="carousel-track">
+            <div class="carousel-item">
+                <img src="ferro.png" alt="Naturaleza" data-type="image">
+            </div>
+            <div class="carousel-item">
+                <img src="ferro.png" alt="Naturaleza" data-type="image">
+            </div>
+            <div class="carousel-item">
+                <img src="ferro.png" alt="Naturaleza" data-type="image">
+            </div>
+        <div class="carousel-controls"> 
+            <button id="prev">&#8249;</button>
+            <button id="next">&#8250;</button>
+        </div>
+    </section>
+
+    <div class="fullscreen" id="fullscreen">
+        <a href="#" id="close">&times;</a>
+        <div class="fullscreen-content" id="fullscreen-content"></div>
+        <a href="#" id="backToCarousel" class="back-carousel-btn">Volver al Carrusel</a>
+    </div>
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const items = Array.from(track.children);
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        const fullscreen = document.getElementById('fullscreen');
+        const fullscreenContent = document.getElementById('fullscreen-content');
+        const closeFullscreen = document.getElementById('close');
+        const downloadButton = document.getElementById('download');
+        const backToCarouselButton = document.getElementById('backToCarousel');
+
+        let currentIndex = 0;
+        let currentFile = ''; // Para almacenar la ruta del archivo para descarga
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        });
+
+        items.forEach((item) => {
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                const video = item.querySelector('video');
+
+                fullscreenContent.innerHTML = '';
+                downloadButton.style.display = 'block';
+                backToCarouselButton.style.display = 'block';
+
+                if (img) {
+                    const fullImg = document.createElement('img');
+                    fullImg.src = img.src;
+                    fullscreenContent.appendChild(fullImg);
+                    currentFile = img.src;
+                    downloadButton.setAttribute('href', currentFile);
+                    downloadButton.setAttribute('download', 'imagen');  // Nombre de descarga
+                } else if (video) {
+                    const fullVideo = document.createElement('video');
+                    fullVideo.src = video.src;
+                    fullVideo.controls = true;
+                    fullVideo.autoplay = true;
+                    fullscreenContent.appendChild(fullVideo);
+                    currentFile = video.src;
+                    downloadButton.setAttribute('href', currentFile);
+                    downloadButton.setAttribute('download', 'video');  // Nombre de descarga
+                }
+
+                fullscreen.style.display = 'flex';
+            });
+        });
+
+        closeFullscreen.addEventListener('click', (e) => {
+            e.preventDefault();
+            fullscreen.style.display = 'none';
+            downloadButton.style.display = 'none';
+            backToCarouselButton.style.display = 'none';
+        });
+
+        backToCarouselButton.addEventListener('click', () => {
+            fullscreen.style.display = 'none';
+            downloadButton.style.display = 'none';
+            backToCarouselButton.style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha del Preso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2a2638, #000000);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        .profile-container {
+            background: #1e1e1e;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            text-align: left;
+            width: 600px;
+        }
+        .profile-container img {
+            border-radius: 10px;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            float: left;
+            margin-right: 20px;
+            border: 5px solid #ff6f61;
+        }
+        .profile-container h1 {
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+        }
+        .profile-container h2 {
+            font-size: 1.2rem;
+            color: #ff9f43;
+            margin: 5px 0;
+        }
+        .profile-container p {
+            font-size: 1rem;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+        .profile-container .info {
+            margin-top: 20px;
+        }
+        .profile-container .info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .profile-container .info ul {
+            list-style: none;
+            padding: 0;
+        }
+        .profile-container .info ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Estilos para el botón de "Volver" */  
+        .back-btn {  
+            position: fixed;  /* Cambiar a fixed para que se mantenga en la misma posición al hacer scroll */  
+            bottom: 5px; /* Coloca el botón 5px desde la parte inferior */  
+            left: 47,5%; /* Centramos el botón horizontalmente */  
+            background-color: #444444;  
+            color: white;  
+            font-size: 1.5rem;  
+            padding: 12px 18px;  
+            border: none;  
+            border-radius: 50%;  
+            cursor: pointer;  
+            display: flex;  
+            align-items: center;  
+            justify-content: center;  
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
+        } 
+
+        .back-btn:hover {
+            background-color: #515050;
+            transform: scale(1.1);
+        }
+
+        .back-btn:active {  
+            transform: scale(1.1); /* Aumenta el tamaño del botón al hacer clic */  
+        }
+
+        .back-btn::before {
+            content: 'Volver';
+            font-size: 0.6rem;
+            font-weight: bold;
+        }
+
+        /* Media Query para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .profile-container {
+                width: 90%;
+                padding: 20px;
+            }
+            .profile-container img {
+                width: 120px;
+                height: 120px;
+                margin-right: 15px;
+            }
+            .profile-container h1 {
+                font-size: 1.5rem;
+            }
+            .profile-container h2 {
+                font-size: 1rem;
+            }
+            .profile-container p, .profile-container .info h3, .profile-container .info ul li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="window.history.back()"></button>
+    <div class="profile-container">
+        <img src="Juan.png" alt="Foto">
+        <h1>Nombre: Juan Cruz</h1>
+        <h2>Alias: "El Mono"</h2>
+        <p><strong>Delitos:</strong> Comer menores, insultar gordas, pegarle al marcos estando borracho, ser un fife</p>
+        <p><strong>Estado:</strong> Soltero pero feliz</p>
+
+        <div class="info">
+            <h3>Detalles</h3>
+            <ul>
+                <li><strong>Edad:</strong> 16</li>
+                <li><strong>Altura:</strong> 1.74 m</li>
+                <li><strong>Peso:</strong> Pluma</li>
+                <li><strong>Instagram:</strong> <a href="https://www.instagram.com/juan_lucz/?utm_source=ig_web_button_share_sheet" target="_blank" style="color: white;">Juan_lucz</a></li>
+                <li><strong>Descripción:</strong> Lo mejor de todo es que es un pibe súper divertido, siempre con una sonrisa y listo para hacerte reír con cualquier cosa. Cuando se pone a bailar, no hay quien lo pare, y si le pones trap, se prende al toque, ni hablar si le das alcohol. Si lo tenés como amigo, siempre sabés que vas a pasarla bien.</li>
+                <li><strong>Testimonio:</strong> "El Santi Come Pito"</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
