@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido wachin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff9f43;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url('https://source.unsplash.com/1600x900/?space,galaxy');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero h2 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .hero button {
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            border: none;
+            color: #ffffff;
+            background: #ff6f61;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .hero button:hover {
+            background: #e64a19;
+        }
+        .features {
+            padding: 60px 20px;
+            background: #121212;
+            text-align: center;
+        }
+        .features h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+        .features .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .features .card {
+            background: #1e1e1e;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .features .card:hover {
+            transform: scale(1.05);
+        }
+        .features .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .features .card p {
+            font-size: 1rem;
+            color: #b0b0b0;
+        }
+        .features .card h4 {
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            color: #7a7777;
+        }
+        footer {
+            background: #0b0b0b;
+            color: #777;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer a {
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: 700;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Query para pantallas pequeñas */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .features h2 {
+                font-size: 2.5rem;
+            }
+
+            .features .card {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .features .card h3 {
+                font-size: 1.5rem;
+            }
+
+            .features .card p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>The Virgins Boys</h1>
+    </header>
+    <section class="hero" id="hero">
+        <h2>Bienvenido a los Teops 🗣🔥</h2>
+    </section>
+    <section class="features" id="features">
+        <h2>Perfil Épico de cada integrante</h2>
+        <h2>Wazaaaaaaa</h2>
+        <div class="cards">
+            <div class="card" onclick="navigateTo('page1.html')">
+                <h4>Haz click para ver el perfil de:</h4>
+                <h3>Juan ComeMenores Cruz</h3>
+                <p>Alias "el mono", el wachin mas indio de los teops</p>
+            </div>
+            <div class="card" onclick="navigateTo('page2.html')">
+                <h4>Haz click para ver el perfil de:</h4>
+                <h3>Maximo CuloRico Rariz</h3>
+                <p>El mas infravalorado de los Teops, mantiene el grupo vivo, es el alma central</p>
+            </div>
+            <div class="card" onclick="navigateTo('page3.html')">
+                <h4>Haz click para ver el perfil de:</h4>
+                <h3>Santiago Emo Luna</h3>
+                <p>Es el que menos estadisticas fisicas del grupo tiene pero se destaca en sus saberes de videojuegos</p>
+            </div>
+            <div class="card" onclick="navigateTo('page4.html')">
+                <h4>Haz click para ver el perfil de:</h4>
+                <h3>Marcos ElCorrecto Alvarez</h3>
+                <p>Es al que mas aprecio se le tiene en el grupo, actualmente esta inactivo pero en 2 años volverá</p>
+            </div>
+            <div class="card" onclick="navigateTo('page5.html')">
+                <h4>Haz click para ver el perfil de:</h4>
+                <h3>Alan ElUrgido Doña</h3>
+                <p>Ultimo en integrarse al grupo traido por marcos, es medio lelo pero se le tiene cariño</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Creado con pasión por <a href="#">Alan WAZAAAAAA</a>. &copy; 2025</p>
+    </footer>
+</body>
+</html>
